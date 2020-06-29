@@ -1,11 +1,19 @@
-const test = require('ava')
-const sinon = require('sinon')
-const path = require('path')
+import test from 'ava'
+import sinon from 'sinon'
+import path from 'path'
 
-const Avanza = require('../dist/index.js')
-const constants = require('../dist/constants.js')
+import Avanza from '../lib/index.js'
+import constants from '../lib/constants.js'
 
-require('dotenv').config({ path: path.join(__dirname, '..', '.env') })
+import dotenv from 'dotenv'
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+dotenv.config({ path: path.join(__dirname, '..', '.env') })
 
 const avanza = new Avanza()
 

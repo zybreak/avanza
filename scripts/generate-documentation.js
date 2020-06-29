@@ -1,9 +1,11 @@
-const documentation = require('documentation')
-const path = require('path')
-const fs = require('fs')
-const Avanza = require('../dist/index.js')
+import documentation from 'documentation'
+import path from 'path'
+import fs from 'fs'
+import Avanza from '../lib/index.js'
 
-require('dotenv').config({ path: path.join(process.cwd(), '.env') })
+import dotenv from 'dotenv'
+
+dotenv.config({ path: path.join(process.cwd(), '.env') })
 
 const avanza = new Avanza()
 const filename = path.join(process.cwd(), 'lib', 'index.js')

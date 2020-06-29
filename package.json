@@ -3,12 +3,17 @@
   "version": "2.0.0",
   "description": "A wrapper for the unofficial Avanza API",
   "main": "dist/index.js",
+  "exports": {
+    "import": "./lib/index.js",
+    "require": "./dist/index.js"
+  },
+  "type": "module",
   "scripts": {
-    "start": "cross-env NODE_ENV=production babel lib -d dist",
-    "test": "npm start && cross-env NODE_ENV=test NODE_PATH=lib ava tests/**/*.test.js",
+    "babel": "cross-env NODE_ENV=production babel lib -d dist",
+    "test": "cross-env NODE_ENV=test NODE_PATH=lib ava tests/**/*.test.js",
     "lint": "eslint lib/**/*",
-    "docs": "npm start && node scripts/generate-documentation.js",
-    "prepublishOnly": "npm run lint"
+    "docs": "node scripts/generate-documentation.js",
+    "prepublishOnly": "npm start && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -27,7 +32,7 @@
     "ws": "3.2.0"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
+    "ava": "^3.9.0",
     "babel-cli": "^6.24.0",
     "babel-preset-env": "^1.6.0",
     "cross-env": "^5.0.5",
